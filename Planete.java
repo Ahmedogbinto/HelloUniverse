@@ -1,18 +1,19 @@
 public class Planete
 {
-
     String nom;
     String matiere;
     int diametre;
 
-    void revolution()
+    int revolution(int angle)
     {
-        System.out.println("Je suis la planete " + this.nom + " et je tourne autour de mon etoile");
+        int angleDeRevolution = angle/360;
+        return angleDeRevolution;
     }
 
-    void rotaion()
+    int rotaion(int angle)
     {
-        System.out.println("Je suis la planete " + this.nom + " et je tourne sur moi-meme");
+        int angleDeRotataion = angle/360;
+        return angleDeRotataion;
     }
 
 }
