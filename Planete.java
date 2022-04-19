@@ -3,17 +3,26 @@ public class Planete
     String nom;
     String matiere;
     int diametre;
+    int nbTotalHumain;
 
-    int revolution(int angle)
+
+    void accueillirVaisseau(int nbHumain)
     {
-        int angleDeRevolution = angle/360;
-        return angleDeRevolution;
+        nbTotalHumain = nbTotalHumain+nbHumain;
     }
-
-    int rotaion(int angle)
+    void accueillirVaisseau( String typeVaisseau)
     {
-        int angleDeRotataion = angle/360;
-        return angleDeRotataion;
+        if (typeVaisseau.equals("CHASSEUR"))
+        {
+            nbTotalHumain=nbTotalHumain+3;
+        }
+        else if (typeVaisseau.equals("FREGATE"))
+        {
+            nbTotalHumain=nbTotalHumain+12;
+        }
+        else if(typeVaisseau.equals("CROISEUR"))
+        {
+            nbTotalHumain=nbTotalHumain+50;
+        }
     }
-
 }

@@ -42,19 +42,11 @@ public class HelloUniverse
         neptune.diametre = 49532;
         neptune.matiere = "Gazeuse";
 
-        System.out.println("la planète terre a pour dimaètre "+terre.diametre+", elle est composée de "+terre.matiere+" et a été surnommé "+terre.nom+"." );
+        mars.accueillirVaisseau(8);
+        mars.accueillirVaisseau("FREGATE");
 
-        Planete planeteX = new Planete();
-        System.out.println("la planèteX a pour diamètre " + planeteX.diametre + ", elle est composée de " + planeteX.matiere + " et a été surnommé " + planeteX.nom + ".");
-
-        neptune.revolution(-3542);
-        System.out.println("Nepturne a effectué un tour de révolution autour de son étoile à "+neptune.revolution(-3542)+" tours");
-
-        mars.rotaion(-684);
-        System.out.println("Mars a effectué un tour de rotation autour de la lune à "+mars.rotaion(-684)+" tours");
-
-        venus.rotaion(1250);
-        System.out.println("Vénus a effectué un tour de rotation autour de la lune à "+venus.rotaion(1250)+" tours");
+        System.out.println("Le nombre d'humain ayant déja séjourné sur Mars est actuellement de "+mars.nbTotalHumain);
     }
+
 
 }
