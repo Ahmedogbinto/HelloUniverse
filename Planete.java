@@ -5,25 +5,23 @@ public class Planete
     int diametre;
     int nbTotalHumain;
     Atmosphere atmosphere;
+    Vaisseau vaisseauActuellemnentAccoste;
 
 
-    void accueillirVaisseau(int nbHumain)
+    void accueillirVaisseau( Vaisseau vaisseau)
     {
-        nbTotalHumain = nbTotalHumain+nbHumain;
+        nbTotalHumain = nbTotalHumain+ vaisseau.nbPassager;
+        if(vaisseauActuellemnentAccoste == null)
+        {
+            System.out.println("Aucun vaisseau ne s'en va");
+        }
+        else
+        {
+            System.out.println("Un vaisseau de type "+vaisseauActuellemnentAccoste.type+" doit partir.");
+        }
+        vaisseauActuellemnentAccoste = vaisseau;
+
     }
-    void accueillirVaisseau( String typeVaisseau)
-    {
-        if (typeVaisseau.equals("CHASSEUR"))
-        {
-            nbTotalHumain=nbTotalHumain+3;
-        }
-        else if (typeVaisseau.equals("FREGATE"))
-        {
-            nbTotalHumain=nbTotalHumain+12;
-        }
-        else if(typeVaisseau.equals("CROISEUR"))
-        {
-            nbTotalHumain=nbTotalHumain+50;
-        }
-    }
+
 }
+

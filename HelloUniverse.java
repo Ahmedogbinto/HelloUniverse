@@ -47,8 +47,15 @@ public class HelloUniverse
         neptune.diametre = 49532;
         neptune.matiere = "Gazeuse";
 
-        mars.accueillirVaisseau(8);
-        mars.accueillirVaisseau("FREGATE");
+        Vaisseau nouveauVaisseau = new Vaisseau();
+        nouveauVaisseau.type="FRAGATE";
+        nouveauVaisseau.nbPassager=9;
+        mars.accueillirVaisseau(nouveauVaisseau);
+
+        Vaisseau autreVaisseau = new Vaisseau();
+        autreVaisseau.type="CROISSEUR";
+        autreVaisseau.nbPassager=42;
+        mars.accueillirVaisseau(autreVaisseau);
 
         System.out.println("Le nombre d'humain ayant déja séjourné sur Mars est actuellement de "+mars.nbTotalHumain);
 
