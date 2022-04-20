@@ -57,7 +57,7 @@ public class HelloUniverse
         autreVaisseau.nbPassager=42;
         mars.accueillirVaisseau(autreVaisseau);
 
-        System.out.println("Le nombre d'humain ayant déja séjourné sur Mars est actuellement de "+mars.nbTotalHumain);
+        /*System.out.println("Le nombre d'humain ayant déja séjourné sur Mars est actuellement de "+mars.nbTotalHumain);
 
         System.out.println("l'atmosphère uranus est composée de:");
         System.out.println("A "+uranus.atmosphere.tauxHydrogene+"% d'hydrogène ");
@@ -65,7 +65,10 @@ public class HelloUniverse
         System.out.println("A "+uranus.atmosphere.tauxDioxydeDeCarbone+"% de dioxyde de carbone");
         System.out.println("A "+uranus.atmosphere.tauxHelium+"% d'helium");
         System.out.println("A "+uranus.atmosphere.tauxMethane+"% de methane");
-        System.out.println("A "+uranus.atmosphere.tauxSodium+"% de sodium");
+        System.out.println("A "+uranus.atmosphere.tauxSodium+"% de sodium");*/
+
+        System.out.println("La forme d'une planète est "+Planete.forme);
+        System.out.println("La forme de la planete Terre est"+terre.forme);
 
 
     }

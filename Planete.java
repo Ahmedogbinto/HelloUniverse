@@ -6,6 +6,7 @@ public class Planete
     int nbTotalHumain;
     Atmosphere atmosphere;
     Vaisseau vaisseauActuellemnentAccoste;
+    static String forme="spherique";
 
 
     void accueillirVaisseau( Vaisseau vaisseau)
