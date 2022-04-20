@@ -4,6 +4,7 @@ public class Planete
     String matiere;
     int diametre;
     int nbTotalHumain;
+    Atmosphere atmosphere;
 
 
     void accueillirVaisseau(int nbHumain)
