@@ -67,8 +67,11 @@ public class HelloUniverse
         System.out.println("A "+uranus.atmosphere.tauxMethane+"% de methane");
         System.out.println("A "+uranus.atmosphere.tauxSodium+"% de sodium");*/
 
-        System.out.println("La forme d'une planète est "+Planete.forme);
-        System.out.println("La forme de la planete Terre est"+terre.forme);
+        System.out.println(Planete.expansion(10.5));
+        System.out.println(Planete.expansion(14.6));
+
+
+
 
 
     }

@@ -8,6 +8,19 @@ public class Planete
     Vaisseau vaisseauActuellemnentAccoste;
     static String forme="spherique";
 
+    static String expansion(double distance)
+    {
+        if (distance<14)
+        {
+            return "Oh la la c<est super rapide";
+        }
+        else
+        {
+            return "Je reve ou cest plus rapide que la lumiere";
+        }
+
+    }
+
 
     void accueillirVaisseau( Vaisseau vaisseau)
     {
@@ -23,6 +36,7 @@ public class Planete
         vaisseauActuellemnentAccoste = vaisseau;
 
     }
+
 
 }
 
