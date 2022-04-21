@@ -7,6 +7,13 @@ public class Planete
     Atmosphere atmosphere;
     Vaisseau vaisseauActuellemnentAccoste;
     static String forme="spherique";
+    static int nbplaneteDecouverte;
+
+    Planete(String nom)
+    {
+        this.nom= nom;
+        nbplaneteDecouverte++;
+    }
 
     static String expansion(double distance)
     {
