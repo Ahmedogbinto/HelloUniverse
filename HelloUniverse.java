@@ -24,10 +24,10 @@ public class HelloUniverse {
         uranus.diametre = 51118;
 
         Atmosphere atmosphereUranus = new Atmosphere();
-        atmosphereUranus.tauxHydrogene = new Float(83f);
-        atmosphereUranus.tauxHelium = new Float(15f);
-        atmosphereUranus.tauxMethane = new Float(2.5f);
-        atmosphereUranus.tauxAzote = new Float(0.0f);
+        atmosphereUranus.tauxHydrogene = 83f;
+        atmosphereUranus.tauxHelium = 15f;
+        atmosphereUranus.tauxMethane = 2.5f;
+        atmosphereUranus.tauxAzote = 0.0f;
 
         System.out.println("l'atmosphère uranus est composée de :");
         if (uranus.atmosphere.tauxHydrogene !=null) {
@@ -55,15 +55,15 @@ public class HelloUniverse {
         neptune.diametre = 49532;
 
 
-        Vaisseau fregate = new VaisseauDeGuerre("FRAGATE");
+        Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
 
-        Vaisseau croisseur = new VaisseauDeGuerre("CROISSEUR");
+        Vaisseau croisseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
 
-        Vaisseau chasseur = new VaisseauDeGuerre("CHASSEUR");
+        Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
 
-        Vaisseau vaisseauMonde = new VaisseauCivil("VAISSEAU-MONDE");
+        Vaisseau vaisseauMonde = new VaisseauCivil(TypeVaisseau.VAISSEAUMONDE);
 
-        Vaisseau cargo = new VaisseauCivil("CARGO");
+        Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Quel vaisseau souhaitez-vous selectionner");
@@ -73,21 +73,23 @@ public class HelloUniverse {
         System.out.println("Quelle tonnage souhaitez-vous embarquee ?");
         int tonnage = sc.nextInt();
 
+        TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelectionner);
         Vaisseau vaisseau = null;
-        switch (vaisseauSelectionner) {
-            case "CHASSEUR":
+
+        switch (typeVaisseau) {
+            case CHASSEUR:
                 vaisseau = chasseur;
                 break;
-            case "FREGATE":
+            case FREGATE:
                 vaisseau = fregate;
                 break;
-            case "CROISEUR":
+            case CROISEUR:
                 vaisseau = croisseur;
                 break;
-            case "CARGO":
+            case CARGO:
                 vaisseau = cargo;
                 break;
-            case "VAISSEAU-MONDE":
+            case VAISSEAUMONDE:
                 vaisseau = vaisseauMonde;
                 break;
         }
