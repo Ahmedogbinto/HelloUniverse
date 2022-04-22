@@ -1,9 +1,12 @@
-public class Vaisseau
+public abstract class Vaisseau
 {
     String type;
     int nbPassager;
     int blindage;
     int resistanceDuBouclier;
+    int tonnageMax;
+    int tonnageActuel;
+
 
     void activerBouclier()
     {
@@ -14,6 +17,8 @@ public class Vaisseau
     {
         System.out.println("Desactivation du bouclier de vaisseau de type "+type);
     }
+
+    abstract int emporterCargaison(int cargaison);
 
 
 }
