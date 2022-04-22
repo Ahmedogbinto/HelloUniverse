@@ -1,9 +1,9 @@
-public class HelloUniverse
-{
-    public static void main(String... args)
-    {
-        PlaneteTellurique mercure=new PlaneteTellurique("Mercure");
-        mercure.matiere="Tellurique";
+import java.util.Scanner;
+
+public class HelloUniverse {
+    public static void main(String... args) {
+        PlaneteTellurique mercure = new PlaneteTellurique("Mercure");
+        mercure.matiere = "Tellurique";
 
         PlaneteTellurique venus = new PlaneteTellurique("Venus");
         venus.diametre = 12100;
@@ -24,77 +24,72 @@ public class HelloUniverse
         uranus.diametre = 51118;
 
         Atmosphere atmosphereUranus = new Atmosphere();
-        atmosphereUranus.tauxHydrogene=83f;
-        atmosphereUranus.tauxHelium=15f;
-        atmosphereUranus.tauxMethane=2.5f;
+        atmosphereUranus.tauxHydrogene = 83f;
+        atmosphereUranus.tauxHelium = 15f;
+        atmosphereUranus.tauxMethane = 2.5f;
+
         uranus.atmosphere = atmosphereUranus;
 
         PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
 
 
-        Vaisseau nouveauVaisseau = new VaisseauDeGuerre("FRAGATE");
-        nouveauVaisseau.nbPassager=9;
-        mars.accueillirVaisseau(nouveauVaisseau);
+        Vaisseau fregate = new VaisseauDeGuerre("FRAGATE");
 
-        Vaisseau autreVaisseau = new VaisseauDeGuerre("CROISSEUR");
-        autreVaisseau.nbPassager=42;
-        mars.accueillirVaisseau(autreVaisseau);
-
-        System.out.println("Le nombre d'humain ayant déja séjourné sur Mars est actuellement de "+mars.totalVisiteurs);
-
-        System.out.println("l'atmosphère uranus est composée de:");
-        System.out.println("A "+uranus.atmosphere.tauxHydrogene+"% d'hydrogène ");
-        System.out.println("A "+uranus.atmosphere.tauxArgon+"% d'argon ");
-        System.out.println("A "+uranus.atmosphere.tauxDioxydeDeCarbone+"% de dioxyde de carbone");
-        System.out.println("A "+uranus.atmosphere.tauxHelium+"% d'helium");
-        System.out.println("A "+uranus.atmosphere.tauxMethane+"% de methane");
-        System.out.println("A "+uranus.atmosphere.tauxSodium+"% de sodium");
-
-     System.out.println("Le nombres total de planete decouverte jusque ici est de: "+Planete.nbplaneteDecouverte);
+        Vaisseau croisseur = new VaisseauDeGuerre("CROISSEUR");
 
         Vaisseau chasseur = new VaisseauDeGuerre("CHASSEUR");
-        chasseur.blindage = 156;
-        chasseur.resistanceDuBouclier = 2;
-
 
         Vaisseau vaisseauMonde = new VaisseauCivil("VAISSEAU-MONDE");
-        vaisseauMonde.blindage=4784;
-        vaisseauMonde.resistanceDuBouclier=30;
 
-        vaisseauMonde.activerBouclier();
-        chasseur.activerBouclier();
-        ((VaisseauDeGuerre)chasseur).attaquer(vaisseauMonde, "lazer photonique", 3);
-        vaisseauMonde.DesactiverBouclier();
+        Vaisseau cargo = new VaisseauCivil("CARGO");
 
-        System.out.println("la resistance du bouclier Vaisseau-monde est de "+vaisseauMonde.resistanceDuBouclier);
-        System.out.println("Le blindage du vaisseau-monde est de "+vaisseauMonde.blindage);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quel vaisseau souhaitez-vous selectionner");
+        String vaisseauSelectionner = sc.nextLine();
+        System.out.println("Sur quelle planete souhaitez-vous poser");
+        String planeteSelectionnee = sc.nextLine();
+        System.out.println("Quelle tonnage souhaitez-vous embarquee ?");
+        int tonnage = sc.nextInt();
 
-        mars.accueillirVaisseau(vaisseauMonde);
+        Vaisseau vaisseau = null;
+        switch (vaisseauSelectionner) {
+            case "CHASSEUR":
+                vaisseau = chasseur;
+                break;
+            case "FREGATE":
+                vaisseau = fregate;
+                break;
+            case "CROISEUR":
+                vaisseau = croisseur;
+                break;
+            case "CARGO":
+                vaisseau = cargo;
+                break;
+            case "VAISSEAU-MONDE":
+                vaisseau = vaisseauMonde;
+                break;
+        }
 
-        mars.accueillirVaisseau(chasseur);
+        PlaneteTellurique planete = null;
+        switch(planeteSelectionnee) {
+            case "Mercure":
+                planete=mercure;
+                break;
+            case "Venus":
+                planete=venus;
+                break;
+            case "Terre":
+                planete=terre;
+                break;
+            case "Mars":
+                planete=mars;
+                break;
 
-        Vaisseau chasseurSurTerre = new VaisseauDeGuerre("CHASSEUR");
-        terre.accueillirVaisseau(chasseurSurTerre);
+        }
+            planete.accueillirVaisseau(vaisseau);
+            int rejet = vaisseau.emporterCargaison(tonnage);
+            System.out.println("Le rejet est de "+rejet);
 
-        System.out.println("Le chasseur a rejete "+ chasseur.emporterCargaison(20)+" tonnes");
-
-        Vaisseau fregateSurterre = new VaisseauDeGuerre("FREGATE");
-        fregateSurterre.nbPassager=100;
-        terre.accueillirVaisseau(fregateSurterre);
-        System.out.println("Le chasseur a rejete "+ fregateSurterre.emporterCargaison(45)+" tonnes");
-        System.out.println("Le chasseur a rejete "+ fregateSurterre.emporterCargaison(12)+" tonnes");
-
-        Vaisseau fregateSurterre2 = new VaisseauDeGuerre("FREGATE");
-        fregateSurterre2.nbPassager=14;
-        terre.accueillirVaisseau(fregateSurterre2);
-        System.out.println("Le chasseur a rejete "+ fregateSurterre2.emporterCargaison(30)+" tonnes");
-
-        Vaisseau vaisseauMondeSurTerre= new VaisseauCivil("VAISSEAU-MONDE");
-        terre.accueillirVaisseau(vaisseauMondeSurTerre);
-        System.out.println("Le Vaisseau monde a rejete "+ vaisseauMondeSurTerre.emporterCargaison(1360)+" tonnes");
-        System.out.println("Le Vaisseau monde a rejete "+ vaisseauMondeSurTerre.emporterCargaison(600)+" tonnes");
     }
-
-
 }
