@@ -55,19 +55,19 @@ public class HelloUniverse
 
      System.out.println("Le nombres total de planete decouverte jusque ici est de: "+Planete.nbplaneteDecouverte);
 
-        VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
+        Vaisseau chasseur = new VaisseauDeGuerre();
         chasseur.blindage = 156;
         chasseur.resistanceDuBouclier = 2;
         chasseur.type="CHASSEUR";
 
-        VaisseauCivil vaisseauMonde = new VaisseauCivil();
+        Vaisseau vaisseauMonde = new VaisseauCivil();
         vaisseauMonde.blindage=4784;
         vaisseauMonde.resistanceDuBouclier=30;
         vaisseauMonde.type="VAISSEAU-MONDE";
 
         vaisseauMonde.activerBouclier();
         chasseur.activerBouclier();
-        chasseur.attaquer(vaisseauMonde, "lazer photonique", 3);
+        ((VaisseauDeGuerre)chasseur).attaquer(vaisseauMonde, "lazer photonique", 3);
         vaisseauMonde.DesactiverBouclier();
 
         System.out.println("la resistance du bouclier Vaisseau-monde est de "+vaisseauMonde.resistanceDuBouclier);

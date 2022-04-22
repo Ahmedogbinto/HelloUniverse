@@ -17,7 +17,7 @@ public class PlaneteTellurique extends Planete implements Habitable
         }
         else
         {
-            System.out.println("Un vaisseau de type"+vaisseauActuellemnentAccoste.type+" doit s<en aller");
+            System.out.println("Un vaisseau de type"+vaisseauActuellemnentAccoste.type+" doit sen aller");
         }
         Vaisseau vaisseauActuellemnentAccoste= vaisseau;
 
