@@ -24,9 +24,30 @@ public class HelloUniverse {
         uranus.diametre = 51118;
 
         Atmosphere atmosphereUranus = new Atmosphere();
-        atmosphereUranus.tauxHydrogene = 83f;
-        atmosphereUranus.tauxHelium = 15f;
-        atmosphereUranus.tauxMethane = 2.5f;
+        atmosphereUranus.tauxHydrogene = new Float(83f);
+        atmosphereUranus.tauxHelium = new Float(15f);
+        atmosphereUranus.tauxMethane = new Float(2.5f);
+        atmosphereUranus.tauxAzote = new Float(0.0f);
+
+        System.out.println("l'atmosphère uranus est composée de :");
+        if (uranus.atmosphere.tauxHydrogene !=null) {
+            System.out.println("A " + uranus.atmosphere.tauxHydrogene + "% d'hydrogène ");
+        }
+        if (uranus.atmosphere.tauxArgon !=null) {
+            System.out.println("A " + uranus.atmosphere.tauxArgon + "% d'argon ");
+        }
+        if (uranus.atmosphere.tauxDioxydeDeCarbone !=null) {
+            System.out.println("A " + uranus.atmosphere.tauxDioxydeDeCarbone + "% de dioxyde de carbone");
+        }
+        if (uranus.atmosphere.tauxHelium !=null) {
+            System.out.println("A " + uranus.atmosphere.tauxHelium + "% d'helium");
+        }
+        if (uranus.atmosphere.tauxMethane!=null) {
+            System.out.println("A " + uranus.atmosphere.tauxMethane + "% de methane");
+        }
+        if (uranus.atmosphere.tauxSodium !=null) {
+            System.out.println("A " + uranus.atmosphere.tauxSodium + "% de sodium");
+        }
 
         uranus.atmosphere = atmosphereUranus;
 
