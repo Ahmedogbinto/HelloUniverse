@@ -14,4 +14,6 @@ public class Vaisseau
     {
         System.out.println("Desactivation du bouclier de vaisseau de type "+type);
     }
+
+
 }

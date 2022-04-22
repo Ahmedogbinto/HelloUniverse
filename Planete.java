@@ -4,6 +4,7 @@ public class Planete
     String matiere;
     int diametre;
     int totalVisiteurs;
+    int nbTotalHumain;
     Atmosphere atmosphere;
     Vaisseau vaisseauActuellemnentAccoste;
     static String forme="spherique";

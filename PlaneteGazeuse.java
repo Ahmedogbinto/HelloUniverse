@@ -6,7 +6,7 @@ public class PlaneteGazeuse extends Planete implements Habitable
     }
 
     @Override
-    public Vaisseau accueillirVaisseau(Vaisseau nouveauvaisseau) {
+    public void accueillirVaisseau(Vaisseau nouveauvaisseau) {
         return null;
     }
 }
