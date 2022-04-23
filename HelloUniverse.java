@@ -55,6 +55,21 @@ public class HelloUniverse {
         neptune.diametre = 49532;
 
 
+        Vaisseau chasseur2 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        chasseur2.nbPassager=2;
+        chasseur2.blindage=156;
+        chasseur2.resistanceDuBouclier=2;
+        Vaisseau chasseur3 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        chasseur2.nbPassager=5;
+        chasseur2.blindage=156;
+        chasseur2.resistanceDuBouclier=2;
+        Vaisseau cargo2 = new VaisseauCivil(TypeVaisseau.CARGO);
+        cargo2.nbPassager = 1001;
+        cargo2.blindage = 1250;
+        cargo2.resistanceDuBouclier=20;
+
+        terre.accueillirVaisseaux(chasseur2, chasseur3, cargo2);
+
         Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
 
         Vaisseau croisseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
@@ -116,9 +131,9 @@ public class HelloUniverse {
             if (!planete.restePlaceDisponible()) {
                 System.out.println("Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
             } else {
-                planete.accueillirVaisseau(vaisseau);
+                planete.accueillirVaisseaux(vaisseau);
 
-                planete.accueillirVaisseau(vaisseau);
+                planete.accueillirVaisseaux(vaisseau);
                 int rejet = vaisseau.emporterCargaison(tonnage);
                 System.out.println("Le rejet est de " + rejet);
             }

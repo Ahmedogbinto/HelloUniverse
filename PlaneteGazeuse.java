@@ -5,8 +5,9 @@ public class PlaneteGazeuse extends Planete implements Habitable
         super(nom);
     }
 
+
     @Override
-    public void accueillirVaisseau(Vaisseau nouveauvaisseau) {
+    public void accueillirVaisseaux(Vaisseau... nouveauvaisseau) {
 
     }
 }
