@@ -128,7 +128,7 @@ public class HelloUniverse {
                     planete = mars;
                     break;
             }
-            if (!planete.restePlaceDisponible()) {
+            if (!planete.restePlaceDisponible(vaisseau)) {
                 System.out.println("Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
             } else {
                 planete.accueillirVaisseaux(vaisseau);

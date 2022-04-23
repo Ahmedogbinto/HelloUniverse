@@ -1,30 +1,40 @@
 public class PlaneteTellurique extends Planete implements Habitable
 {
-    Vaisseau[] baieAccostage;
+    Vaisseau[][] baieAccostage;
 
     public PlaneteTellurique(String nom,int tailleBaie) {
         super(nom);
-        this.baieAccostage = new Vaisseau[tailleBaie];
+        this.baieAccostage = new Vaisseau[tailleBaie][tailleBaie];
     }
 
-     boolean restePlaceDisponible() {
-         for (int index = 0; index < baieAccostage.length; index++) {
-             if (baieAccostage[index] == null) {
+     boolean restePlaceDisponible(Vaisseau vaisseau) {
+        int indexZone=0;
+        switch(vaisseau.type){
+            case CARGO:
+            case VAISSEAUMONDE:
+                indexZone=1;
+         }
+
+         for (int index = 0; index < baieAccostage[indexZone].length; index++) {
+             if (baieAccostage[indexZone][index] == null) {
                  return true;
              }
          }
          return false;
      }
-    PlaneteTellurique(String nom)
-    {
-        super(nom);
-    }
     public void accueillirVaisseaux(Vaisseau... vaisseau) {
         for(int i=0; i<vaisseau.length; i++) {
 
+            int indexZone=0;
+            switch(vaisseau[1].type){
+                case CARGO:
+                case VAISSEAUMONDE:
+                    indexZone=1;
+            }
+
             for (int index = 0; index < baieAccostage.length; index++) {
                 if (baieAccostage[index] == null){
-                    baieAccostage[index] = vaisseau[i];
+                    baieAccostage[indexZone][index] = vaisseau[1];
                     break;
                 }
 
