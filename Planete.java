@@ -6,7 +6,6 @@ public abstract class Planete
     int totalVisiteurs;
     int nbTotalHumain;
     Atmosphere atmosphere;
-    Vaisseau vaisseauActuellemnentAccoste;
     static String forme="spherique";
     static int nbplaneteDecouverte;
 
