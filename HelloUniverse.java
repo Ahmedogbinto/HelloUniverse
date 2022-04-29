@@ -124,7 +124,7 @@ public class HelloUniverse {
                     vaisseau = vaisseauMonde;
                     break;
             }
-            Planete p = systemeSolaire.planeteList.get(planeteSelectionnee);
+            Planete p = systemeSolaire.planeteList.get(planeteSelectionnee-1);
             if (p instanceof PlaneteGazeuse){
                 System.out.println("La planete selectionnee nest pas une planete tellurique, recommencer");
                 continue;
