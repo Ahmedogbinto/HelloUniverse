@@ -3,7 +3,6 @@ public abstract class Planete
     String nom;
     String matiere;
     int diametre;
-    int totalVisiteurs;
     int nbTotalHumain;
     Atmosphere atmosphere;
     static String forme="spherique";

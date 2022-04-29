@@ -8,31 +8,31 @@ public class HelloUniverse {
 
         PlaneteTellurique mercure = new PlaneteTellurique("Mercure",1);
         mercure.matiere = "Tellurique";
-        systemeSolaire.planeteList.add(mercure);
+        systemeSolaire.planetes.add(mercure);
 
         PlaneteTellurique venus = new PlaneteTellurique("Venus",2);
         venus.diametre = 12100;
-        systemeSolaire.planeteList.add(venus);
+        systemeSolaire.planetes.add(venus);
 
         PlaneteTellurique terre = new PlaneteTellurique("Terre",10);
         terre.diametre = 12756;
-        systemeSolaire.planeteList.add(terre);
+        systemeSolaire.planetes.add(terre);
 
         PlaneteTellurique mars = new PlaneteTellurique("Mars",3);
         mars.diametre = 6792;
-        systemeSolaire.planeteList.add(mars);
+        systemeSolaire.planetes.add(mars);
 
         PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
         jupiter.diametre = 142984;
-        systemeSolaire.planeteList.add(jupiter);
+        systemeSolaire.planetes.add(jupiter);
 
         PlaneteGazeuse saturne = new PlaneteGazeuse("Saturne");
         saturne.diametre = 120536;
-        systemeSolaire.planeteList.add(saturne);
+        systemeSolaire.planetes.add(saturne);
 
         PlaneteGazeuse uranus = new PlaneteGazeuse("Uranus");
         uranus.diametre = 51118;
-        systemeSolaire.planeteList.add(uranus);
+        systemeSolaire.planetes.add(uranus);
 
         Atmosphere atmosphereUranus = new Atmosphere();
         atmosphereUranus.tauxHydrogene = 83f;
@@ -95,11 +95,10 @@ public class HelloUniverse {
            boolean recommencer = true;
 
         while (recommencer){
-            System.out.println("Quel vaisseau souhaitez-vous selectionner");
+            System.out.println("Quel vaisseau souhaitez-vous selectionner:");
             String vaisseauSelectionner = sc.nextLine();
             System.out.println("Sur quelle planete tellurique en partant du systeme solaire  souhaitez-vous poser: 1, 2, 3, 4, 5, 6, ou 7");
-            int planeteSelectionnee = sc.nextInt();
-            sc.nextLine();
+            String nomPlanete =sc.nextLine();
             System.out.println("Quelle tonnage souhaitez-vous embarquee ?");
             int tonnage = sc.nextInt();
             sc.nextLine();
@@ -124,13 +123,19 @@ public class HelloUniverse {
                     vaisseau = vaisseauMonde;
                     break;
             }
-            Planete p = systemeSolaire.planeteList.get(planeteSelectionnee-1);
-            if (p instanceof PlaneteGazeuse){
+            Planete planeteSelectionnee = null;
+            for( Planete p: systemeSolaire.planetes){
+                if (p.nom.equals(nomPlanete)){
+                    planeteSelectionnee=p;
+                    break;
+                }
+            }
+            if (planeteSelectionnee instanceof PlaneteGazeuse){
                 System.out.println("La planete selectionnee nest pas une planete tellurique, recommencer");
                 continue;
             }
 
-            PlaneteTellurique planete = (PlaneteTellurique) p;
+            PlaneteTellurique planete = (PlaneteTellurique) planeteSelectionnee;
             if (!planete.restePlaceDisponible(vaisseau)) {
                 System.out.println("Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
             } else {
