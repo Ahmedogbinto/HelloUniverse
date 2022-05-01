@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class HelloUniverse {
@@ -34,33 +35,17 @@ public class HelloUniverse {
         uranus.diametre = 51118;
         systemeSolaire.planetes.add(uranus);
 
-        Atmosphere atmosphereUranus = new Atmosphere();
-        atmosphereUranus.tauxHydrogene = 83f;
-        atmosphereUranus.tauxHelium = 15f;
-        atmosphereUranus.tauxMethane = 2.5f;
-        atmosphereUranus.tauxAzote = 0.0f;
+        Atmosphere atmosphereMars = new Atmosphere();
+        atmosphereMars.constituants.put("CO2",95f);
+        atmosphereMars.constituants.put("N2",3f);
+        atmosphereMars.constituants.put("AR",1.5f);
+        atmosphereMars.constituants.put("NO",0.013f);
+        mars.atmosphere = atmosphereMars;
 
-        System.out.println("l'atmosphère uranus est composée de :");
-        if (uranus.atmosphere.tauxHydrogene !=null) {
-            System.out.println("A " + uranus.atmosphere.tauxHydrogene + "% d'hydrogène ");
+        System.out.println("l'atmosphère Mars est composée de :");
+        for(Map.Entry<String,Float> constituant : mars.atmosphere.constituants.entrySet()){
+            System.out.println(constituant.getValue()+"% de "+ constituant.getKey());
         }
-        if (uranus.atmosphere.tauxArgon !=null) {
-            System.out.println("A " + uranus.atmosphere.tauxArgon + "% d'argon ");
-        }
-        if (uranus.atmosphere.tauxDioxydeDeCarbone !=null) {
-            System.out.println("A " + uranus.atmosphere.tauxDioxydeDeCarbone + "% de dioxyde de carbone");
-        }
-        if (uranus.atmosphere.tauxHelium !=null) {
-            System.out.println("A " + uranus.atmosphere.tauxHelium + "% d'helium");
-        }
-        if (uranus.atmosphere.tauxMethane!=null) {
-            System.out.println("A " + uranus.atmosphere.tauxMethane + "% de methane");
-        }
-        if (uranus.atmosphere.tauxSodium !=null) {
-            System.out.println("A " + uranus.atmosphere.tauxSodium + "% de sodium");
-        }
-
-        uranus.atmosphere = atmosphereUranus;
 
         PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
