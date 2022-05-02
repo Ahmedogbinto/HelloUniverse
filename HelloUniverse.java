@@ -8,31 +8,38 @@ public class HelloUniverse {
         systemeSolaire.nom = "Systeme solaire";
 
         PlaneteTellurique mercure = new PlaneteTellurique("Mercure",1);
-        mercure.matiere = "Tellurique";
+        mercure.diametre = 4880;
+        mercure.distaneEtoile = 57.9f;
         systemeSolaire.planetes.add(mercure);
 
         PlaneteTellurique venus = new PlaneteTellurique("Venus",2);
         venus.diametre = 12100;
+        venus.distaneEtoile = 108.2f;
         systemeSolaire.planetes.add(venus);
 
         PlaneteTellurique terre = new PlaneteTellurique("Terre",10);
         terre.diametre = 12756;
+        terre.distaneEtoile = 149.6f;
         systemeSolaire.planetes.add(terre);
 
         PlaneteTellurique mars = new PlaneteTellurique("Mars",3);
         mars.diametre = 6792;
+        terre.distaneEtoile = (float) 227.9;
         systemeSolaire.planetes.add(mars);
 
         PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
         jupiter.diametre = 142984;
+        jupiter.distaneEtoile = 778.3f;
         systemeSolaire.planetes.add(jupiter);
 
         PlaneteGazeuse saturne = new PlaneteGazeuse("Saturne");
         saturne.diametre = 120536;
+        saturne.distaneEtoile = 14.27f;
         systemeSolaire.planetes.add(saturne);
 
         PlaneteGazeuse uranus = new PlaneteGazeuse("Uranus");
         uranus.diametre = 51118;
+        uranus.distaneEtoile = 2877.38f;
         systemeSolaire.planetes.add(uranus);
 
         Atmosphere atmosphereMars = new Atmosphere();
@@ -49,6 +56,14 @@ public class HelloUniverse {
 
         PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
+
+        neptune.diametre = 49352;
+        neptune.distaneEtoile = 4497.07f;
+        systemeSolaire.planetes.add(neptune);
+        systemeSolaire.planetes.add(jupiter);
+        for (Planete nextPlanete: systemeSolaire.planetes){
+            System.out.println("La planete suivante est "+nextPlanete.nom);
+        }
 
 
         Vaisseau chasseur2 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);

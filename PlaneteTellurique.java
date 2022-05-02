@@ -50,4 +50,9 @@ public class PlaneteTellurique extends Planete implements Habitable
 
     }
 
+    @Override
+    public int compareTo(Object o) {
+        Planete autrePlanete = (Planete)o;
+        return ((Float)distaneEtoile).compareTo(autrePlanete.distaneEtoile);
+    }
 }

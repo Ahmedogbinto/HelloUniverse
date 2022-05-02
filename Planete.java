@@ -1,10 +1,12 @@
-public abstract class Planete
+public abstract class Planete implements Comparable
 {
     String nom;
     String matiere;
     int diametre;
     int nbTotalHumain;
     Atmosphere atmosphere;
+
+    float distaneEtoile;
     static String forme="spherique";
     static int nbplaneteDecouverte;
 

@@ -10,4 +10,10 @@ public class PlaneteGazeuse extends Planete implements Habitable
     public void accueillirVaisseaux(Vaisseau... nouveauvaisseau) {
 
     }
+
+    @Override
+    public int compareTo(Object o) {
+        Planete autrePlanete = (Planete)o;
+        return ((Float)distaneEtoile).compareTo(autrePlanete.distaneEtoile);
+    }
 }
