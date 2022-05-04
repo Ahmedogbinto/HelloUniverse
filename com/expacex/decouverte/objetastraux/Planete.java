@@ -1,12 +1,14 @@
+package com.expacex.decouverte.objetastraux;
+
 public abstract class Planete implements Comparable
 {
-    String nom;
-    String matiere;
-    int diametre;
+    public String nom;
+    public String matiere;
+    public int diametre;
     int nbTotalHumain;
-    Atmosphere atmosphere;
+    public Atmosphere atmosphere;
 
-    float distaneEtoile;
+    public float distaneEtoile;
     static String forme="spherique";
     static int nbplaneteDecouverte;
 

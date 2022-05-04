@@ -1,8 +1,10 @@
+package com.expacex.decouverte.enginspaciaux;
+
 public class VaisseauDeGuerre extends Vaisseau
 {
     boolean armesDesactivees;
 
-    VaisseauDeGuerre (TypeVaisseau type)
+    public VaisseauDeGuerre (TypeVaisseau type)
     {
         this.type=type;
         if (type==TypeVaisseau.CHASSEUR) {
@@ -24,7 +26,7 @@ public class VaisseauDeGuerre extends Vaisseau
             vaisseauAttaque.blindage = vaisseauAttaque.blindage / 2;
         }
     }
-        void desactiverArmes()
+        public void desactiverArmes()
         {
             System.out.println("Desactivation dun vaisseau de type "+type);
             armesDesactivees = true;
@@ -36,7 +38,7 @@ public class VaisseauDeGuerre extends Vaisseau
         }
 
     @Override
-    int emporterCargaison(int cargaison) {
+    public int emporterCargaison(int cargaison) {
         if(type.equals("CHASSEUR")){
             return cargaison;
         }

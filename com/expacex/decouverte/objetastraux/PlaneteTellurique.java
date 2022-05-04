@@ -1,3 +1,11 @@
+package com.expacex.decouverte.objetastraux;
+
+import com.expacex.decouverte.enginspaciaux.TypeVaisseau;
+import com.expacex.decouverte.enginspaciaux.Vaisseau;
+import com.expacex.decouverte.enginspaciaux.VaisseauDeGuerre;
+
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CARGO;
+
 public class PlaneteTellurique extends Planete implements Habitable
 {
     Vaisseau[][] baieAccostage;
@@ -7,11 +15,11 @@ public class PlaneteTellurique extends Planete implements Habitable
         this.baieAccostage = new Vaisseau[tailleBaie][tailleBaie];
     }
 
-     boolean restePlaceDisponible(Vaisseau vaisseau) {
+    public boolean restePlaceDisponible(Vaisseau vaisseau) {
         int indexZone=0;
         switch(vaisseau.type){
             case CARGO:
-            case VAISSEAUMONDE:
+            case TypeVaisseau.VAISSEAUMONDE:
                 indexZone=1;
          }
 
@@ -28,7 +36,7 @@ public class PlaneteTellurique extends Planete implements Habitable
             int indexZone=0;
             switch(vaisseau[1].type){
                 case CARGO:
-                case VAISSEAUMONDE:
+                case TypeVaisseau.VAISSEAUMONDE:
                     indexZone=1;
             }
 

@@ -40,7 +40,8 @@
     "last_opened_file_path": "D:/Projets/JavaProject/Pangram",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -51,7 +52,8 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-17.0.1" />
-      <option name="MAIN_CLASS_NAME" value="HelloUniverse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.expacex.decouverte.HelloUniverse" />
       <module name="HelloUniverse" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -68,5 +70,9 @@
       <updated>1650301526615</updated>
     </task>
     <servers />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

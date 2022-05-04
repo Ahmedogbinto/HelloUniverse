@@ -1,6 +1,8 @@
+package com.expacex.decouverte.enginspaciaux;
+
 public class VaisseauCivil extends Vaisseau
 {
-    VaisseauCivil (TypeVaisseau type)
+    public VaisseauCivil (TypeVaisseau type)
     {
         this.type=type;
         if (type==TypeVaisseau.CHASSEUR) {
@@ -12,7 +14,7 @@ public class VaisseauCivil extends Vaisseau
     }
 
     @Override
-    int emporterCargaison(int cargaison) {
+    public int emporterCargaison(int cargaison) {
         int tonnageRestant=tonnageMax-tonnageActuel;
         if (cargaison>tonnageRestant){
             tonnageActuel=tonnageMax;

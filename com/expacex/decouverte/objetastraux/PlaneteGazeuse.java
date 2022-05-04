@@ -1,3 +1,7 @@
+package com.expacex.decouverte.objetastraux;
+
+import com.expacex.decouverte.enginspaciaux.Vaisseau;
+
 public class PlaneteGazeuse extends Planete implements Habitable
 {
 
