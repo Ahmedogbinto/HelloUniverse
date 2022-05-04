@@ -1,10 +1,10 @@
 package com.expacex.decouverte.objetastraux;
 
 import com.expacex.decouverte.enginspaciaux.TypeVaisseau;
+
 import com.expacex.decouverte.enginspaciaux.Vaisseau;
 import com.expacex.decouverte.enginspaciaux.VaisseauDeGuerre;
 
-import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CARGO;
 
 public class PlaneteTellurique extends Planete implements Habitable
 {
@@ -19,7 +19,7 @@ public class PlaneteTellurique extends Planete implements Habitable
         int indexZone=0;
         switch(vaisseau.type){
             case CARGO:
-            case TypeVaisseau.VAISSEAUMONDE:
+            case VAISSEAUMONDE:
                 indexZone=1;
          }
 
@@ -36,7 +36,7 @@ public class PlaneteTellurique extends Planete implements Habitable
             int indexZone=0;
             switch(vaisseau[1].type){
                 case CARGO:
-                case TypeVaisseau.VAISSEAUMONDE:
+                case VAISSEAUMONDE:
                     indexZone=1;
             }
 

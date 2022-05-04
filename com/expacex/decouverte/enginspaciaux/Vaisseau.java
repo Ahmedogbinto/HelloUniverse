@@ -7,7 +7,7 @@ public abstract class Vaisseau
     public int blindage;
     public int resistanceDuBouclier;
     public int tonnageMax;
-    int tonnageActuel;
+    protected int tonnageActuel;
 
 
     void activerBouclier()

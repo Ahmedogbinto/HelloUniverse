@@ -1,6 +1,12 @@
 package com.expacex.decouverte;
 
 import com.expacex.decouverte.enginspaciaux.TypeVaisseau;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CARGO;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CHASSEUR;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.VAISSEAUMONDE;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.FREGATE;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CROISEUR;
+
 import com.expacex.decouverte.enginspaciaux.Vaisseau;
 import com.expacex.decouverte.enginspaciaux.VaisseauCivil;
 import com.expacex.decouverte.enginspaciaux.VaisseauDeGuerre;
@@ -74,30 +80,32 @@ public class HelloUniverse {
         }
 
 
-        Vaisseau chasseur2 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        Vaisseau chasseur2 = new VaisseauDeGuerre(CHASSEUR);
         chasseur2.nbPassager=2;
         chasseur2.blindage=156;
         chasseur2.resistanceDuBouclier=2;
-        Vaisseau chasseur3 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
-        chasseur2.nbPassager=5;
-        chasseur2.blindage=156;
-        chasseur2.resistanceDuBouclier=2;
-        Vaisseau cargo2 = new VaisseauCivil(TypeVaisseau.CARGO);
+
+        Vaisseau chasseur3 = new VaisseauDeGuerre(CHASSEUR);
+        chasseur3.nbPassager=5;
+        chasseur3.blindage=156;
+        chasseur3.resistanceDuBouclier=2;
+
+        Vaisseau cargo2 = new VaisseauCivil(CARGO);
         cargo2.nbPassager = 1001;
         cargo2.blindage = 1250;
         cargo2.resistanceDuBouclier=20;
 
         terre.accueillirVaisseaux(chasseur2, chasseur3, cargo2);
 
-        Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
+        Vaisseau fregate = new VaisseauDeGuerre(FREGATE);
 
-        Vaisseau croisseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
+        Vaisseau croisseur = new VaisseauDeGuerre(CROISEUR);
 
-        Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        Vaisseau chasseur = new VaisseauDeGuerre(CHASSEUR);
 
-        Vaisseau vaisseauMonde = new VaisseauCivil(TypeVaisseau.VAISSEAUMONDE);
+        Vaisseau vaisseauMonde = new VaisseauCivil(VAISSEAUMONDE);
 
-        Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
+        Vaisseau cargo = new VaisseauCivil(CARGO);
 
             Scanner sc = new Scanner(System.in);
            boolean recommencer = true;
@@ -115,19 +123,19 @@ public class HelloUniverse {
             Vaisseau vaisseau = null;
 
             switch (typeVaisseau) {
-                case TypeVaisseau.CHASSEUR:
+                case CHASSEUR:
                     vaisseau = chasseur;
                     break;
-                case TypeVaisseau.FREGATE:
+                case FREGATE:
                     vaisseau = fregate;
                     break;
-                case TypeVaisseau.CROISEUR:
+                case CROISEUR:
                     vaisseau = croisseur;
                     break;
-                case TypeVaisseau.CARGO:
+                case CARGO:
                     vaisseau = cargo;
                     break;
-                case TypeVaisseau.VAISSEAUMONDE:
+                case VAISSEAUMONDE:
                     vaisseau = vaisseauMonde;
                     break;
             }

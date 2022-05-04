@@ -1,19 +1,22 @@
 package com.expacex.decouverte.enginspaciaux;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CHASSEUR;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.FREGATE;
+import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.CROISEUR;
 
 public class VaisseauDeGuerre extends Vaisseau
 {
-    boolean armesDesactivees;
+    private boolean armesDesactivees;
 
     public VaisseauDeGuerre (TypeVaisseau type)
     {
         this.type=type;
-        if (type==TypeVaisseau.CHASSEUR) {
+        if (type==CHASSEUR) {
             tonnageMax = 0;
         }
-        else if (type==TypeVaisseau.FREGATE) {
+        else if (type==FREGATE) {
             tonnageMax=50;
         }
-        else if (type==TypeVaisseau.CROISEUR) {
+        else if (type==CROISEUR) {
             tonnageMax=100;
         }
     }
@@ -30,6 +33,10 @@ public class VaisseauDeGuerre extends Vaisseau
         {
             System.out.println("Desactivation dun vaisseau de type "+type);
             armesDesactivees = true;
+        }
+
+        public void armesDesactivees(){
+        armesDesactivees = false;
         }
         void activerBouclier()
         {
