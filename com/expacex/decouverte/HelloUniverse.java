@@ -11,7 +11,7 @@ import com.expacex.decouverte.enginspaciaux.Vaisseau;
 import com.expacex.decouverte.enginspaciaux.VaisseauCivil;
 import com.expacex.decouverte.enginspaciaux.VaisseauDeGuerre;
 import com.expacex.decouverte.objetastraux.*;
-
+import com.expacex.decouverte.enginspaciaux.DepassementTonnageException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -118,7 +118,6 @@ public class HelloUniverse {
             System.out.println("Quelle tonnage souhaitez-vous embarquee ?");
             int tonnage = sc.nextInt();
             sc.nextLine();
-
             TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelectionner);
             Vaisseau vaisseau = null;
 
@@ -157,9 +156,23 @@ public class HelloUniverse {
             } else {
                 planete.accueillirVaisseaux(vaisseau);
 
-                planete.accueillirVaisseaux(vaisseau);
-                int rejet = vaisseau.emporterCargaison(tonnage);
-                System.out.println("Le rejet est de " + rejet);
+                try {
+                    vaisseau.emporterCargaison(tonnage);
+                } catch (DepassementTonnageException dte) {
+                    System.out.println("Le vaisseau a rejete: "+dte.tonnageEnExces+" tonne");
+                    System.out.println("Voulez-vous emportez un tonnage partiel a hauteur de"+(tonnage-dte.tonnageEnExces)+"oui/non");
+                    String accepte = sc.nextLine();
+                    if(accepte.equals("oui")){
+                        try {
+                            vaisseau.emporterCargaison(tonnage - dte.tonnageEnExces);
+                        } catch (DepassementTonnageException e) {
+                            System.out.println("Erreur inattendue.");
+                        }
+                    }
+                    else {
+                        System.out.println("Operation annulee");
+                    }
+                }
             }
             System.out.println("Voulez-vous recommencer le processus?");
             recommencer = sc.nextLine() .equalsIgnoreCase("oui");

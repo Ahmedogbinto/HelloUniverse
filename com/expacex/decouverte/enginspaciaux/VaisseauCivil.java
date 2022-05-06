@@ -4,9 +4,8 @@ import static com.expacex.decouverte.enginspaciaux.TypeVaisseau.VAISSEAUMONDE;
 
 public class VaisseauCivil extends Vaisseau
 {
-    public VaisseauCivil (TypeVaisseau type)
-    {
-        this.type=type;
+    public VaisseauCivil (TypeVaisseau type) {
+        super(type);
         if (type==CHASSEUR) {
             tonnageMax = 500;
         }
@@ -16,15 +15,15 @@ public class VaisseauCivil extends Vaisseau
     }
 
     @Override
-    public int emporterCargaison(int cargaison) {
+    public void emporterCargaison(int cargaison) throws DepassementTonnageException{
         int tonnageRestant=tonnageMax-tonnageActuel;
         if (cargaison>tonnageRestant){
-            tonnageActuel=tonnageMax;
-            return cargaison-tonnageRestant;
+            int tonnageEnExces = cargaison-tonnageRestant;
+            throw new DepassementTonnageException(tonnageEnExces);
         }
         else{
             tonnageActuel=tonnageActuel+cargaison;
-            return 0;
+
         }
 
     }

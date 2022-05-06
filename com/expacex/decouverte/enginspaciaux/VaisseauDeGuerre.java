@@ -7,9 +7,8 @@ public class VaisseauDeGuerre extends Vaisseau
 {
     private boolean armesDesactivees;
 
-    public VaisseauDeGuerre (TypeVaisseau type)
-    {
-        this.type=type;
+    public VaisseauDeGuerre (TypeVaisseau type) {
+        super (type);
         if (type==CHASSEUR) {
             tonnageMax = 0;
         }
@@ -45,25 +44,24 @@ public class VaisseauDeGuerre extends Vaisseau
         }
 
     @Override
-    public int emporterCargaison(int cargaison) {
+    public void emporterCargaison(int cargaison) throws DepassementTonnageException{
         if(type.equals("CHASSEUR")){
-            return cargaison;
+            return;
         }
         else{
             if (nbPassager<12){
-                return cargaison;
+                return;
             }
             else{
                 int tonnagePassagers = 2*nbPassager;
                 int tonnageRestant=tonnageMax-tonnageActuel;
                 int tonnageAConsiderer=(tonnagePassagers<tonnageRestant ? tonnagePassagers : tonnageRestant);
                 if (cargaison>tonnageAConsiderer){
-                    tonnageActuel=tonnageMax;
-                    return cargaison-tonnageAConsiderer;
+                    int tonnageEnExces = cargaison-tonnageAConsiderer;
+                    throw new DepassementTonnageException(tonnageEnExces);
                 }
                 else{
                     tonnageActuel=tonnageActuel+cargaison;
-                    return 0;
                 }
             }
         }

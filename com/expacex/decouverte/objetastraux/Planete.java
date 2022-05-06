@@ -28,8 +28,15 @@ public abstract class Planete implements Comparable
         {
             return "Je reve ou cest plus rapide que la lumiere";
         }
-
     }
+     public final int revolution (int angle){
+        return angle/360;
+     }
+
+     public final int rotation (int angle){
+        return angle/360;
+     }
+
 
 
 
