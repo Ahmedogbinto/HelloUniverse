@@ -110,72 +110,84 @@ public class HelloUniverse {
             Scanner sc = new Scanner(System.in);
            boolean recommencer = true;
 
-        while (recommencer){
+        while (recommencer) {
             System.out.println("Quel vaisseau souhaitez-vous selectionner:");
             String vaisseauSelectionner = sc.nextLine();
             System.out.println("Sur quelle planete tellurique en partant du systeme solaire  souhaitez-vous poser: 1, 2, 3, 4, 5, 6, ou 7");
-            String nomPlanete =sc.nextLine();
-            System.out.println("Quelle tonnage souhaitez-vous embarquee ?");
-            int tonnage = sc.nextInt();
-            sc.nextLine();
-            TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelectionner);
-            Vaisseau vaisseau = null;
+            String nomPlanete = sc.nextLine();
 
-            switch (typeVaisseau) {
-                case CHASSEUR:
-                    vaisseau = chasseur;
-                    break;
-                case FREGATE:
-                    vaisseau = fregate;
-                    break;
-                case CROISEUR:
-                    vaisseau = croisseur;
-                    break;
-                case CARGO:
-                    vaisseau = cargo;
-                    break;
-                case VAISSEAUMONDE:
-                    vaisseau = vaisseauMonde;
-                    break;
-            }
-            Planete planeteSelectionnee = null;
-            for( Planete p: systemeSolaire.planetes){
-                if (p.nom.equals(nomPlanete)){
-                    planeteSelectionnee=p;
+            int tonnage;
+            while(true) {
+                System.out.println("Quelle tonnage souhaitez-vous embarquee ?");
+                try{
+                    tonnage = sc.nextInt();
                     break;
                 }
+                catch(java.util.InputMismatchException ime){
+                    System.out.println("Le tonnage que vous essayer de rentrer n'est pas numerique");
+                }
+                finally {
+                    sc.nextLine();
+                }
             }
-            if (planeteSelectionnee instanceof PlaneteGazeuse){
-                System.out.println("La planete selectionnee nest pas une planete tellurique, recommencer");
-                continue;
-            }
+                TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelectionner);
+                Vaisseau vaisseau = null;
 
-            PlaneteTellurique planete = (PlaneteTellurique) planeteSelectionnee;
-            if (!planete.restePlaceDisponible(vaisseau)) {
-                System.out.println("Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
-            } else {
-                planete.accueillirVaisseaux(vaisseau);
+                switch (typeVaisseau) {
+                    case CHASSEUR:
+                        vaisseau = chasseur;
+                        break;
+                    case FREGATE:
+                        vaisseau = fregate;
+                        break;
+                    case CROISEUR:
+                        vaisseau = croisseur;
+                        break;
+                    case CARGO:
+                        vaisseau = cargo;
+                        break;
+                    case VAISSEAUMONDE:
+                        vaisseau = vaisseauMonde;
+                        break;
+                }
+                Planete planeteSelectionnee = null;
+                for (Planete p : systemeSolaire.planetes) {
+                    if (p.nom.equals(nomPlanete)) {
+                        planeteSelectionnee = p;
+                        break;
+                    }
+                }
+                if (planeteSelectionnee instanceof PlaneteGazeuse) {
+                    System.out.println("La planete selectionnee nest pas une planete tellurique, recommencer");
+                    continue;
+                }
 
-                try {
-                    vaisseau.emporterCargaison(tonnage);
-                } catch (DepassementTonnageException dte) {
-                    System.out.println("Le vaisseau a rejete: "+dte.tonnageEnExces+" tonne");
-                    System.out.println("Voulez-vous emportez un tonnage partiel a hauteur de"+(tonnage-dte.tonnageEnExces)+"oui/non");
-                    String accepte = sc.nextLine();
-                    if(accepte.equals("oui")){
-                        try {
-                            vaisseau.emporterCargaison(tonnage - dte.tonnageEnExces);
-                        } catch (DepassementTonnageException e) {
-                            System.out.println("Erreur inattendue.");
+                PlaneteTellurique planete = (PlaneteTellurique) planeteSelectionnee;
+                if (!planete.restePlaceDisponible(vaisseau)) {
+                    System.out.println("Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
+                } else {
+                    planete.accueillirVaisseaux(vaisseau);
+
+                    try {
+                        vaisseau.emporterCargaison(tonnage);
+                    } catch (DepassementTonnageException dte) {
+                        System.out.println("Le vaisseau a rejete: " + dte.tonnageEnExces + " tonne");
+                        System.out.println("Voulez-vous emportez un tonnage partiel a hauteur de" + (tonnage - dte.tonnageEnExces) + "oui/non");
+                        String accepte = sc.nextLine();
+                        if (accepte.equals("oui")) {
+                            try {
+                                vaisseau.emporterCargaison(tonnage - dte.tonnageEnExces);
+                            } catch (DepassementTonnageException e) {
+                                System.out.println("Erreur inattendue.");
+                            }
+                        } else {
+                            System.out.println("Operation annulee");
                         }
                     }
-                    else {
-                        System.out.println("Operation annulee");
-                    }
                 }
-            }
-            System.out.println("Voulez-vous recommencer le processus?");
-            recommencer = sc.nextLine() .equalsIgnoreCase("oui");
+                System.out.println("Voulez-vous recommencer le processus?");
+                recommencer = sc.nextLine().equalsIgnoreCase("oui");
+
         }
 
 
